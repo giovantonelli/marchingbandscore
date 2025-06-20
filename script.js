@@ -70,7 +70,8 @@ class ScoreApp {
 
     async showScoreDetail(scoreId) {
         try {
-            const score = this.scores.find(s => s.id === scoreId);
+            // Confronto id come stringa per compatibilità
+            const score = this.scores.find(s => String(s.id) === String(scoreId));
             if (!score) return;
 
             this.currentScore = score;
