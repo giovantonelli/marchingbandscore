@@ -89,9 +89,8 @@ class AdminManager {
         try {
             await Promise.all([
                 this.loadStats(),
-                this.loadScores(),
-                this.loadOrders(),
-                this.loadUsers()
+                this.loadScores()
+                // Rimosso: this.loadOrders(), this.loadUsers()
             ]);
         } catch (error) {
             console.error('Error loading dashboard data:', error);
@@ -106,30 +105,9 @@ class AdminManager {
                 .from('scores')
                 .select('*', { count: 'exact', head: true });
 
-            // Load orders count
-            const { count: ordersCount } = await supabase
-                .from('orders')
-                .select('*', { count: 'exact', head: true });
-
-            // Load users count
-            const { count: usersCount } = await supabase
-                .from('users')
-                .select('*', { count: 'exact', head: true });
-
-            // Load total revenue
-            const { data: revenueData } = await supabase
-                .from('orders')
-                .select('total_amount')
-                .eq('status', 'completed');
-
-            const totalRevenue = revenueData?.reduce((sum, order) => sum + parseFloat(order.total_amount), 0) || 0;
-
-            // Update stats display
+            // Aggiornamento solo spartiti
             document.getElementById('totalScores').textContent = scoresCount || 0;
-            document.getElementById('totalOrders').textContent = ordersCount || 0;
-            document.getElementById('totalUsers').textContent = usersCount || 0;
-            document.getElementById('totalRevenue').textContent = `€${totalRevenue.toFixed(2)}`;
-
+            // Rimosso: ordini, utenti, revenue
         } catch (error) {
             console.error('Error loading stats:', error);
         }
@@ -166,79 +144,6 @@ class AdminManager {
         } catch (error) {
             console.error('Error loading scores:', error);
             this.showError('Errore nel caricamento degli spartiti');
-        }
-    }
-
-    async loadOrders() {
-        try {
-            const { data: orders, error } = await supabase
-                .from('orders')
-                .select(`
-                    *,
-                    users(email)
-                `)
-                .order('created_at', { ascending: false });
-
-            if (error) throw error;
-
-            const tbody = document.getElementById('ordersTableBody');
-            tbody.innerHTML = orders.map(order => `
-                <tr>
-                    <td>${order.id}</td>
-                    <td>${this.escapeHtml(order.users?.email || 'N/A')}</td>
-                    <td>€${order.total_amount}</td>
-                    <td>
-                        <span class="status-badge status-${order.status}">
-                            ${order.status}
-                        </span>
-                    </td>
-                    <td>${new Date(order.created_at).toLocaleDateString()}</td>
-                    <td>
-                        <button class="btn btn-sm btn-info" onclick="adminManager.viewOrderDetails(${order.id})">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </td>
-                </tr>
-            `).join('');
-
-        } catch (error) {
-            console.error('Error loading orders:', error);
-            this.showError('Errore nel caricamento degli ordini');
-        }
-    }
-
-    async loadUsers() {
-        try {
-            const { data: users, error } = await supabase
-                .from('users')
-                .select('*')
-                .order('created_at', { ascending: false });
-
-            if (error) throw error;
-
-            const tbody = document.getElementById('usersTableBody');
-            tbody.innerHTML = users.map(user => `
-                <tr>
-                    <td>${user.id}</td>
-                    <td>${this.escapeHtml(user.email)}</td>
-                    <td>
-                        <select class="form-select form-select-sm" onchange="adminManager.updateUserRole('${user.id}', this.value)">
-                            <option value="user" ${user.role === 'user' ? 'selected' : ''}>User</option>
-                            <option value="admin" ${user.role === 'admin' ? 'selected' : ''}>Admin</option>
-                        </select>
-                    </td>
-                    <td>${new Date(user.created_at).toLocaleDateString()}</td>
-                    <td>
-                        <button class="btn btn-sm btn-warning" onclick="adminManager.resetUserPassword('${user.id}')">
-                            <i class="fas fa-key"></i>
-                        </button>
-                    </td>
-                </tr>
-            `).join('');
-
-        } catch (error) {
-            console.error('Error loading users:', error);
-            this.showError('Errore nel caricamento degli utenti');
         }
     }
 
@@ -429,65 +334,6 @@ class AdminManager {
         } catch (error) {
             console.error('Error deleting score:', error);
             this.showError('Errore nell\'eliminazione dello spartito: ' + error.message);
-        }
-    }
-
-    async updateUserRole(userId, newRole) {
-        try {
-            const { error } = await supabase
-                .from('users')
-                .update({
-                    role: newRole,
-                    updated_at: new Date().toISOString()
-                })
-                .eq('id', userId);
-
-            if (error) throw error;
-
-            alert('Ruolo utente aggiornato con successo!');
-            await this.loadUsers();
-
-        } catch (error) {
-            console.error('Error updating user role:', error);
-            this.showError('Errore nell\'aggiornamento del ruolo utente: ' + error.message);
-        }
-    }
-
-    async viewOrderDetails(orderId) {
-        try {
-            const { data: order, error } = await supabase
-                .from('orders')
-                .select(`
-                    *,
-                    users(email),
-                    order_items(
-                        *,
-                        scores(title, composer, price)
-                    )
-                `)
-                .eq('id', orderId)
-                .single();
-
-            if (error) throw error;
-
-            const details = `
-                Ordine ID: ${order.id}
-                Utente: ${order.users?.email || 'N/A'}
-                Totale: €${order.total_amount}
-                Stato: ${order.status}
-                Data: ${new Date(order.created_at).toLocaleString()}
-                
-                Spartiti:
-                ${order.order_items.map(item => 
-                    `- ${item.scores.title} (${item.scores.composer}) - €${item.price}`
-                ).join('\n')}
-            `;
-
-            alert(details);
-
-        } catch (error) {
-            console.error('Error loading order details:', error);
-            this.showError('Errore nel caricamento dei dettagli dell\'ordine');
         }
     }
 

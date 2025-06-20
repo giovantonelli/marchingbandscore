@@ -1,6 +1,6 @@
 // Supabase Configuration
-const SUPABASE_URL = window.ENV_CONFIG?.SUPABASE_URL || 'SUPABASE_URL_PLACEHOLDER';
-const SUPABASE_ANON_KEY = window.ENV_CONFIG?.SUPABASE_ANON_KEY || 'SUPABASE_ANON_KEY_PLACEHOLDER';
+const SUPABASE_URL = window.ENV_CONFIG?.SUPABASE_URL || '';
+const SUPABASE_ANON_KEY = window.ENV_CONFIG?.SUPABASE_ANON_KEY || '';
 
 // Initialize Supabase client
 let supabase;
@@ -18,9 +18,7 @@ if (typeof window !== 'undefined' && window.supabase && window.supabase.createCl
 // Database table names
 const TABLES = {
     SCORES: 'scores',
-    USERS: 'users',
-    ORDERS: 'orders',
-    ORDER_ITEMS: 'order_items'
+    USERS: 'users'
 };
 
 // Storage bucket names
@@ -41,13 +39,6 @@ const USER_ROLES = {
     ADMIN: 'admin'
 };
 
-// Order statuses
-const ORDER_STATUSES = {
-    PENDING: 'pending',
-    COMPLETED: 'completed',
-    FAILED: 'failed'
-};
-
 // Export configuration for use in other files
 window.supabaseConfig = {
     client: supabase,
@@ -57,7 +48,6 @@ window.supabaseConfig = {
         folders: STORAGE_FOLDERS
     },
     constants: {
-        userRoles: USER_ROLES,
-        orderStatuses: ORDER_STATUSES
+        userRoles: USER_ROLES
     }
 };
