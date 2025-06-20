@@ -140,8 +140,8 @@ class ScoreApp {
         const score = this.scores.find(s => s.id === scoreId);
         if (!score) return;
         try {
-            // Sostituisci con il tuo endpoint Zapier Webhook
-            const webhookUrl = 'https://hooks.zapier.com/hooks/catch/XXXXXXXX/stripecheckout';
+            // Usa il Worker Cloudflare come proxy verso Zapier
+            const webhookUrl = 'https://muddy-surf-ecd8.giovantonelli19.workers.dev/';
             const response = await fetch(webhookUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
