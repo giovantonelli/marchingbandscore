@@ -22,7 +22,7 @@
     </style>
 </head>
 <body>
-    <div id="turnstile-overlay">
+    <div id="turnstile-overlay" style="display:none;">
         <div>
             <div class="mb-3 text-center">
                 <strong>Verifica di non essere un robot per accedere al sito</strong>
@@ -31,7 +31,16 @@
         </div>
     </div>
     <script>
+        // Mostra il challenge solo se non già superato nell'ultima ora
+        window.addEventListener('DOMContentLoaded', function() {
+            const ts = localStorage.getItem('turnstile_passed_ts');
+            const now = Date.now();
+            if (!ts || now - parseInt(ts, 10) > 3600000) {
+                document.getElementById('turnstile-overlay').style.display = 'flex';
+            }
+        });
         function onTurnstileSuccess(token) {
+            localStorage.setItem('turnstile_passed_ts', Date.now().toString());
             document.getElementById('turnstile-overlay').style.display = 'none';
         }
     </script>
@@ -59,7 +68,7 @@
                     <li class="nav-item" id="loginNavItem">
                         <a class="nav-link" href="#" onclick="showLoginModal()">Accedi</a>
                     </li>
-                    <li class="nav-item d-none" id="logoutNavItem">
+                    <li class="nav-item d-none" id="logoutNavItem"></li>
                         <a class="nav-link" href="#" onclick="logout()">Esci</a>
                     </li>
                 </ul>
