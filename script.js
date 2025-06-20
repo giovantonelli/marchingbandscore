@@ -142,8 +142,9 @@ class ScoreApp {
         try {
             // Usa il Worker Cloudflare come proxy verso Zapier
             const webhookUrl = 'https://muddy-surf-ecd8.giovantonelli19.workers.dev/';
-            const successUrl = window.location.origin + '/provasito/index.html?success=1';
-            const cancelUrl = window.location.origin + '/provasito/index.html?canceled=1';
+            const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/');
+            const successUrl = baseUrl + 'success.html';
+            const cancelUrl = baseUrl + 'canceled.html';
             const response = await fetch(webhookUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
