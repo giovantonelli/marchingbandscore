@@ -243,14 +243,34 @@ document.addEventListener('DOMContentLoaded', function() {
             const password = document.getElementById('registerPassword').value;
             const confirmPassword = document.getElementById('registerConfirmPassword').value;
             
+            // Validazione password
+            const passwordErrors = [];
+            if (password.length < 8) {
+                passwordErrors.push('La password deve contenere almeno 8 caratteri.');
+            }
+            if (!/[a-z]/.test(password)) {
+                passwordErrors.push('La password deve contenere almeno una lettera minuscola.');
+            }
+            if (!/[A-Z]/.test(password)) {
+                passwordErrors.push('La password deve contenere almeno una lettera maiuscola.');
+            }
+            if (!/[0-9]/.test(password)) {
+                passwordErrors.push('La password deve contenere almeno un numero.');
+            }
+            if (!/[^A-Za-z0-9]/.test(password)) {
+                passwordErrors.push('La password deve contenere almeno un simbolo.');
+            }
             if (password !== confirmPassword) {
-                alert('Le password non coincidono');
+                passwordErrors.push('Le password non coincidono');
+            }
+            if (passwordErrors.length > 0) {
+                alert(passwordErrors.join('\n'));
                 return;
             }
             
             const result = await authManager.register(email, password);
             if (result.success) {
-                alert('Registrazione completata! Controlla la tua email per confermare l\'account.');
+                alert('Registrazione completata! Ora puoi accedere con le tue credenziali.');
             } else {
                 alert('Errore durante la registrazione: ' + result.error);
             }
