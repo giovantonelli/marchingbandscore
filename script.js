@@ -47,6 +47,7 @@ class ScoreApp {
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">${this.escapeHtml(score.title)}</h5>
+                        <p class="mb-1"><span class="badge bg-secondary">${this.escapeHtml(score.category || 'Altro')}</span></p>
                         <p class="card-text text-muted">${this.escapeHtml(score.composer || 'Compositore sconosciuto')}</p>
                         <p class="card-text">${this.escapeHtml(score.description || 'Nessuna descrizione disponibile')}</p>
                         <div class="d-flex justify-content-between align-items-center">

@@ -9,30 +9,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-music me-2"></i>Marching Band Score
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#scores">Spartiti</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-info ms-2" href="contatti.html">
-                            <i class="fas fa-envelope me-1"></i>Contatti
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+    <div id="site-header"></div>
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
@@ -91,5 +68,15 @@
     <!-- App Scripts -->
     <script src="products.js"></script>
     <script src="script.js"></script>
+    <div id="site-footer"></div>
+    <script>
+      // Carica header e footer
+      fetch('header.html').then(r => r.text()).then(html => {
+        document.getElementById('site-header').innerHTML = html;
+      });
+      fetch('footer.html').then(r => r.text()).then(html => {
+        document.getElementById('site-footer').innerHTML = html;
+      });
+    </script>
 </body>
 </html>
