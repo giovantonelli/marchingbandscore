@@ -142,16 +142,17 @@ class ScoreApp {
         try {
             // Usa il Worker Cloudflare come proxy verso Zapier
             const webhookUrl = 'https://muddy-surf-ecd8.giovantonelli19.workers.dev/';
+            const successUrl = window.location.origin + '/provasito/index.html?success=1';
+            const cancelUrl = window.location.origin + '/provasito/index.html?canceled=1';
             const response = await fetch(webhookUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     title: score.title,
-                    price: score.price,
+                    price: Math.round(score.price * 100), // in centesimi
                     score_id: score.id,
-                    // puoi aggiungere altri dati se vuoi
-                    success_url: window.location.href + '?success=1',
-                    cancel_url: window.location.href + '?canceled=1'
+                    success_url: successUrl,
+                    cancel_url: cancelUrl
                 })
             });
             const data = await response.json();
