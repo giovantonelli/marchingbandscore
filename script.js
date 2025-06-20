@@ -27,7 +27,16 @@ class ScoreApp {
                 return;
             }
 
-            this.scores = scores || [];
+            // Recupera le URL pubbliche delle immagini
+            const scoresWithImages = await Promise.all((scores || []).map(async (score) => {
+                if (score.cover_url) {
+                    const { data } = supabase.storage.from('scores').getPublicUrl(score.cover_url);
+                    return { ...score, cover_url: data.publicUrl };
+                }
+                return score;
+            }));
+
+            this.scores = scoresWithImages;
             console.log('Scores loaded from database:', this.scores.length);
             this.renderScores();
         } catch (error) {
