@@ -69,7 +69,13 @@
     <script src="products.js"></script>
     <script src="script.js"></script>
     <div id="site-footer"></div>
+    <footer class="bg-dark text-light py-3 mt-5">
+      <div class="container text-center">
+        <p class="mb-0">© <span id="footerYear"></span> Marching Band Score — Realizzato da Giovanni Antonelli</p>
+      </div>
+    </footer>
     <script>
+      document.getElementById('footerYear').textContent = new Date().getFullYear();
       // Carica header e footer
       fetch('header.html').then(r => r.text()).then(html => {
         document.getElementById('site-header').innerHTML = html;
