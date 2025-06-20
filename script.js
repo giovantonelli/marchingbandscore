@@ -136,35 +136,9 @@ class ScoreApp {
         `).join('');
     }
 
+    // Funzione placeholder: acquisto disabilitato
     async startStripeCheckout(scoreId) {
-        const score = this.scores.find(s => s.id === scoreId);
-        if (!score) return;
-        try {
-            // Usa il Worker Cloudflare come proxy verso Zapier
-            const webhookUrl = 'https://muddy-surf-ecd8.giovantonelli19.workers.dev/';
-            const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/');
-            const successUrl = baseUrl + 'success.html';
-            const cancelUrl = baseUrl + 'canceled.html';
-            const response = await fetch(webhookUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    title: score.title,
-                    price: Math.round(score.price * 100), // in centesimi
-                    score_id: score.id,
-                    success_url: successUrl,
-                    cancel_url: cancelUrl
-                })
-            });
-            const data = await response.json();
-            if (data && data.checkout_url) {
-                window.location.href = data.checkout_url;
-            } else {
-                alert('Errore durante la creazione della sessione di pagamento.');
-            }
-        } catch (error) {
-            alert('Errore Stripe: ' + error.message);
-        }
+        alert('Funzione di acquisto non disponibile.');
     }
 
     async showScoreDetail(scoreId) {
