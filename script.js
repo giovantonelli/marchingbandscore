@@ -29,8 +29,12 @@ class ScoreApp {
 
             // Recupera le URL pubbliche delle immagini
             const scoresWithImages = await Promise.all((scores || []).map(async (score) => {
-                if (score.cover_url) {
-                    const { data } = supabase.storage.from('scores').getPublicUrl(score.cover_url);
+                let coverPath = score.cover_url;
+                if (coverPath && !coverPath.startsWith('covers/')) {
+                    coverPath = 'covers/' + coverPath;
+                }
+                if (coverPath) {
+                    const { data } = supabase.storage.from('scores').getPublicUrl(coverPath);
                     return { ...score, cover_url: data.publicUrl };
                 }
                 return score;
