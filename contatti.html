@@ -27,21 +27,23 @@
                             </div>
                             <div class="col-md-8">
                                 <h1 class="mb-3"><i class="fas fa-address-card me-2"></i>Contatti</h1>
-                                <p class="lead">Ciao! Sono Giovanni Antonelli, arrangiatore e polistrumentista esperto in spartiti per marching band moderne. Offro arrangiamenti originali e adattamenti di brani celebri per ogni tipo di formazione.<br>
-                                <strong>Strumenti:</strong>
-                                <ul class="mb-2">
-                                    <li>Clarinetto in Sib</li>
-                                    <li>Sax contralto</li>
-                                    <li>Sax tenore</li>
-                                    <li>Sax baritono</li>
-                                    <li>Sax soprano</li>
-                                    <li>Contrabbasso tuba in Sib</li>
-                                    <li>Trombone tenore</li>
-                                    <li>Tromba</li>
-                                    <li>Percussioni</li>
-                                </ul>
-                                </p>
+                                <p class="lead mb-0">Ciao! Sono Giovanni Antonelli, arrangiatore e polistrumentista esperto in spartiti per marching band moderne. Offro arrangiamenti originali e adattamenti di brani celebri per ogni tipo di formazione.</p>
                             </div>
+                        </div>
+                        <hr class="my-4">
+                        <div>
+                            <strong>Strumenti:</strong>
+                            <ul class="mb-2">
+                                <li>Clarinetto in Sib</li>
+                                <li>Sax contralto</li>
+                                <li>Sax tenore</li>
+                                <li>Sax baritono</li>
+                                <li>Sax soprano</li>
+                                <li>Contrabbasso tuba in Sib</li>
+                                <li>Trombone tenore</li>
+                                <li>Tromba</li>
+                                <li>Percussioni</li>
+                            </ul>
                         </div>
                         <hr>
                         <h5 class="mb-3">Come acquistare gli spartiti</h5>
@@ -68,9 +70,13 @@
       fetch('header.html').then(r => r.text()).then(html => {
         document.getElementById('site-header').innerHTML = html;
       });
-      fetch('footer.html').then(r => r.text()).then(html => {
-        document.getElementById('site-footer').innerHTML = html;
-      });
+      // Footer custom
+      document.getElementById('site-footer').innerHTML = `
+        <footer style="text-align:center; padding:1em 0; font-size:0.9em; color:#666;">
+          &copy; <span id="year"></span> Giovanni Antinelli. Tutti i diritti riservati.
+        </footer>
+      `;
+      document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
