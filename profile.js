@@ -114,16 +114,26 @@ class ProfileManager {
             this.purchasedScores = [];
             let totalSpent = 0;
 
-            orders.forEach(order => {
+            for (const order of orders) {
                 totalSpent += parseFloat(order.total_amount);
-                order.order_items.forEach(item => {
+                for (const item of order.order_items) {
+                    let coverPath = item.scores.cover_url;
+                    if (coverPath && !coverPath.startsWith('covers/')) {
+                        coverPath = 'covers/' + coverPath;
+                    }
+                    let publicUrl = null;
+                    if (coverPath) {
+                        const { data } = supabase.storage.from('scores').getPublicUrl(coverPath);
+                        publicUrl = data.publicUrl;
+                    }
                     this.purchasedScores.push({
                         ...item.scores,
+                        cover_url: publicUrl,
                         purchaseDate: order.created_at,
                         orderId: order.id
                     });
-                });
-            });
+                }
+            }
 
             // Update stats
             document.getElementById('purchasedCount').textContent = this.purchasedScores.length;
