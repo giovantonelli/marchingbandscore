@@ -126,11 +126,43 @@ class ScoreApp {
                             <button class="btn btn-primary" onclick="app.showScoreDetail(${score.id})">
                                 <i class="fas fa-eye me-1"></i>Dettagli
                             </button>
+                            <button class="btn btn-success ms-2" onclick="app.startStripeCheckout(${score.id})">
+                                <i class="fab fa-cc-stripe me-1"></i>Acquista con Stripe
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         `).join('');
+    }
+
+    async startStripeCheckout(scoreId) {
+        const score = this.scores.find(s => s.id === scoreId);
+        if (!score) return;
+        try {
+            // Sostituisci con il tuo endpoint Zapier Webhook
+            const webhookUrl = 'https://hooks.zapier.com/hooks/catch/XXXXXXXX/stripecheckout';
+            const response = await fetch(webhookUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    title: score.title,
+                    price: score.price,
+                    score_id: score.id,
+                    // puoi aggiungere altri dati se vuoi
+                    success_url: window.location.href + '?success=1',
+                    cancel_url: window.location.href + '?canceled=1'
+                })
+            });
+            const data = await response.json();
+            if (data && data.checkout_url) {
+                window.location.href = data.checkout_url;
+            } else {
+                alert('Errore durante la creazione della sessione di pagamento.');
+            }
+        } catch (error) {
+            alert('Errore Stripe: ' + error.message);
+        }
     }
 
     async showScoreDetail(scoreId) {
