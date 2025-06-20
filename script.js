@@ -21,13 +21,10 @@ class ScoreApp {
                 .order('created_at', { ascending: false });
 
             if (error) {
-                // If permission denied, table not found, or recursion error
-                if (error.code === '42501' || error.code === '42P01' || error.code === '42P17') {
-                    this.showDatabaseSetupMessage();
-                    this.loadDemoScores();
-                    return;
-                }
-                throw error;
+                console.error('Database error:', error);
+                this.showDatabaseSetupMessage();
+                this.loadDemoScores();
+                return;
             }
 
             this.scores = scores || [];
@@ -396,11 +393,10 @@ class ScoreApp {
         if (document.querySelector('.database-setup-alert')) return;
         
         const alertDiv = document.createElement('div');
-        alertDiv.className = 'alert alert-warning alert-dismissible fade show database-setup-alert';
+        alertDiv.className = 'alert alert-info alert-dismissible fade show database-setup-alert';
         alertDiv.innerHTML = `
-            <i class="fas fa-exclamation-triangle me-2"></i>
-            <strong>Policy Error Detected:</strong> Errore nelle policy del database. 
-            Esegui <code>emergency-fix.sql</code> nel SQL Editor di Supabase per risolvere.
+            <i class="fas fa-info-circle me-2"></i>
+            <strong>Nuovo Progetto V2:</strong> Esegui il file <code>setup-v2-database.sql</code> nel SQL Editor per configurare il database.
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         `;
         
