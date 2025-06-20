@@ -7,7 +7,7 @@ const PRODUCTS = [
     description: "L'inno disco dei Village People per marching band. Arrangiamento con coreografie integrate e sezioni foniche interattive.",
     price: 24.00,
     category: null,
-    cover_url: 'ymca.jpg',
+    cover_url: 'uploads/ymca.jpg',
     pdf_url: null,
     audio_url: null,
     preview_url: null
@@ -19,7 +19,7 @@ const PRODUCTS = [
     description: 'Il tormentone dei Ricchi e Poveri per street band. Arrangiamento orecchiabile con parti vocali integrate negli strumenti.',
     price: 20.00,
     category: null,
-    cover_url: 'sara-perche-ti-amo.jpg',
+    cover_url: 'uploads/sara-perche-ti-amo.jpg',
     pdf_url: null,
     audio_url: null,
     preview_url: null
@@ -31,7 +31,7 @@ const PRODUCTS = [
     description: 'Arrangiamento per marching band del celebre successo dance di Gigi D’Agostino.\nMelodia iconica, groove elettronico adattato per strumenti a fiato e percussioni.\nPerfetto per sfilate, eventi e coreografie moderne: include break strumentale e finale coinvolgente.',
     price: 24.00,
     category: null,
-    cover_url: 'img_685144db770332.40930450.jpg',
+    cover_url: 'uploads/img_685144db770332.40930450.jpg',
     pdf_url: null,
     audio_url: null,
     preview_url: null
@@ -43,7 +43,7 @@ const PRODUCTS = [
     description: 'Il classico di Bellini in stile samba per marching band. Ritmo coinvolgente con sezioni percussive elaborate e arrangiamento festoso.',
     price: 30.00,
     category: null,
-    cover_url: 'samba-do-brasil.jpg',
+    cover_url: 'uploads/samba-do-brasil.jpg',
     pdf_url: null,
     audio_url: null,
     preview_url: null
@@ -55,7 +55,7 @@ const PRODUCTS = [
     description: 'Il successo dance di Gala rivisitato per bande in movimento. Groove ipnotico con sezioni ritmiche sincopate.',
     price: 26.00,
     category: null,
-    cover_url: 'freed-from-desire.jpg',
+    cover_url: 'uploads/freed-from-desire.jpg',
     pdf_url: null,
     audio_url: null,
     preview_url: null
@@ -68,7 +68,7 @@ const PRODUCTS = [
       "Medley epico tra la colonna di Rocky e l'inno degli Europe. Transizioni dinamiche e finale maestoso ad alto impatto scenico.",
     price: 32.00,
     category: null,
-    cover_url: 'rocky-countdown.jpg',
+    cover_url: 'uploads/rocky-countdown.jpg',
     pdf_url: null,
     audio_url: null,
     preview_url: null
@@ -80,7 +80,7 @@ const PRODUCTS = [
     description: 'Rivisitazione del brano dei White Stripes ottimizzata per esibizioni in movimento. Versione con intro percussiva ampliata e finale a coda.',
     price: 27.00,
     category: null,
-    cover_url: 'seven-nation-army.jpg',
+    cover_url: 'uploads/seven-nation-army.jpg',
     pdf_url: null,
     audio_url: null,
     preview_url: null

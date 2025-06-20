@@ -14,12 +14,8 @@ class ScoreApp {
     loadScores() {
         // Carica spartiti dal file products.js
         this.scores = PRODUCTS.map(score => {
-            // Se cover_url non è già un path completo, aggiungi covers/
-            let coverPath = score.cover_url;
-            if (coverPath && !coverPath.startsWith('covers/') && coverPath !== null) {
-                coverPath = 'covers/' + coverPath;
-            }
-            return { ...score, cover_url: coverPath };
+            // Ora cover_url punta già a uploads/
+            return { ...score };
         });
         this.renderScores();
     }
