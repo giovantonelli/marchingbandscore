@@ -6,92 +6,24 @@ class ScoreApp {
         this.init();
     }
 
-    async init() {
-        await this.loadScores();
-        this.setupEventListeners();
+    init() {
+        this.loadScores();
+        // Eventi non più necessari
     }
 
-    async loadScores() {
-        try {
-            this.showLoading(true);
-            
-            const { data: scores, error } = await supabase
-                .from('scores')
-                .select('*')
-                .order('created_at', { ascending: false });
-
-            if (error) {
-                console.error('Database error:', error);
-                this.showDatabaseSetupMessage();
-                this.loadDemoScores();
-                return;
+    loadScores() {
+        // Carica spartiti dal file products.js
+        this.scores = PRODUCTS.map(score => {
+            // Se cover_url non è già un path completo, aggiungi covers/
+            let coverPath = score.cover_url;
+            if (coverPath && !coverPath.startsWith('covers/') && coverPath !== null) {
+                coverPath = 'covers/' + coverPath;
             }
-
-            // Recupera le URL pubbliche delle immagini
-            const scoresWithImages = await Promise.all((scores || []).map(async (score) => {
-                let coverPath = score.cover_url;
-                if (coverPath && !coverPath.startsWith('covers/')) {
-                    coverPath = 'covers/' + coverPath;
-                }
-                if (coverPath) {
-                    const { data } = supabase.storage.from('scores').getPublicUrl(coverPath);
-                    return { ...score, cover_url: data.publicUrl };
-                }
-                return score;
-            }));
-
-            this.scores = scoresWithImages;
-            console.log('Scores loaded from database:', this.scores.length);
-            this.renderScores();
-        } catch (error) {
-            console.error('Error loading scores:', error);
-            this.showDatabaseSetupMessage();
-            this.loadDemoScores();
-        } finally {
-            this.showLoading(false);
-        }
-    }
-    
-    loadDemoScores() {
-        // Demo data to show the interface working
-        this.scores = [
-            {
-                id: 1,
-                title: "Marcia Trionfale",
-                composer: "Giuseppe Verdi",
-                description: "Una magnifica marcia per banda musicale con arrangiamenti professionali.",
-                price: 15.99,
-                category: "marcia",
-                cover_url: null,
-                audio_url: null,
-                preview_url: null
-            },
-            {
-                id: 2,
-                title: "Sinfonia della Primavera",
-                composer: "Antonio Vivaldi",
-                description: "Adattamento per banda dell'opera classica Le Quattro Stagioni.",
-                price: 22.50,
-                category: "sinfonia",
-                cover_url: null,
-                audio_url: null,
-                preview_url: null
-            },
-            {
-                id: 3,
-                title: "Concerto per Tromba",
-                composer: "Johann Hummel",
-                description: "Splendido concerto solistico per tromba e banda musicale.",
-                price: 18.75,
-                category: "concerto",
-                cover_url: null,
-                audio_url: null,
-                preview_url: null
-            }
-        ];
+            return { ...score, cover_url: coverPath };
+        });
         this.renderScores();
     }
-
+    
     renderScores() {
         const container = document.getElementById('scoresContainer');
         if (!container) return;
