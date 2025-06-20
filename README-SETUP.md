@@ -1,62 +1,44 @@
-# Setup del Database Supabase
+# Setup del Database Supabase - URGENT FIX
 
-## Problema Risolto: Accesso Pannello Admin
+## PROBLEMA CRITICO: Ricorsione Infinita nelle Policy RLS
 
-Il problema era che il controllo del ruolo admin non funzionava correttamente. Ho implementato le seguenti correzioni:
+### SOLUZIONE IMMEDIATA (Esegui subito):
 
-### 1. Configurazione Supabase Corretta
-- Risolto il problema dell'inizializzazione del client Supabase
-- Configurate le credenziali tramite variabili d'ambiente
+1. **Vai su Supabase Dashboard → SQL Editor**
+2. **Esegui il file `emergency-fix.sql` IMMEDIATAMENTE**
 
-### 2. Sistema di Gestione Ruoli Migliorato
-- Creato `AdminUtils` per gestire i profili utente
-- Implementato controllo robusto dei ruoli admin
-- Aggiunto logging per debug
+Questo risolverà l'errore "infinite recursion detected in policy for relation 'users'".
 
-### 3. Setup Database Richiesto
+### Setup Completo:
 
-**IMPORTANTE**: Devi eseguire questo setup nel tuo dashboard Supabase per far funzionare tutto:
-
-#### Passo 1: Crea le Tabelle
-Vai su Supabase Dashboard → SQL Editor e esegui il contenuto di `database_setup.sql`
-
-#### Passo 2: Configura il Storage
-1. Vai su Storage nel dashboard Supabase
-2. Crea un bucket chiamato `scores`
-3. Crea le cartelle: `covers`, `pdfs`, `audio`
-4. Configura le policies di storage:
-   - Covers e Audio: lettura pubblica
-   - PDFs: solo utenti che hanno acquistato
-
-#### Passo 3: Imposta il Tuo Utente Admin
-Dopo aver creato il tuo account utente, esegui nel SQL Editor:
+#### Passo 1: Fix Emergenza
 ```sql
-UPDATE users SET role = 'admin' WHERE email = 'la-tua-email@example.com';
+-- Esegui questo nel SQL Editor per fermare la ricorsione
+ALTER TABLE users DISABLE ROW LEVEL SECURITY;
+ALTER TABLE scores DISABLE ROW LEVEL SECURITY;
+ALTER TABLE orders DISABLE ROW LEVEL SECURITY;
+ALTER TABLE order_items DISABLE ROW LEVEL SECURITY;
 ```
 
-### 4. Verifiche Implementate
+#### Passo 2: Setup Sicurezza (Opzionale)
+Dopo che il sito funziona, puoi eseguire `fix-policies.sql` per riabilitare la sicurezza con policy corrette.
 
-Il sistema ora:
-- Controlla automaticamente se le tabelle esistono
-- Crea profili utente automaticamente
-- Verifica correttamente i ruoli admin
-- Mostra log dettagliati per debug
-
-### 5. Testing del Sistema
-
-Una volta completato il setup:
-1. Registrati con il tuo account
-2. Imposta il ruolo admin nel database
+#### Passo 3: Configura Admin
+1. Registra un account sul sito
+2. Nel SQL Editor: `UPDATE users SET role = 'admin' WHERE email = 'tua-email@example.com';`
 3. Ricarica la pagina
-4. Il link "Admin Panel" dovrebbe apparire
-5. L'accesso al pannello admin dovrebbe funzionare
 
-### Fix Applicati
+#### Passo 4: Storage (Per file upload)
+1. Crea bucket `scores` in Supabase Storage
+2. Crea cartelle: `covers`, `pdfs`, `audio`
+3. Imposta policy pubbliche per covers/audio
 
-- **auth.js**: Migliorato caricamento profilo utente
-- **admin.js**: Aggiunto controllo admin più robusto
-- **admin-utils.js**: Nuovo sistema di gestione ruoli
-- **supabase-config.js**: Configurazione client corretta
-- **config.js**: Gestione variabili d'ambiente
+### Stato Attuale:
+- ✅ Client Supabase configurato
+- ✅ Tabelle database create
+- ❌ **POLICY RLS CAUSANO RICORSIONE** (fix urgente)
+- ✅ Sistema admin implementato
+- ✅ Modalità demo funzionante
 
-Il sistema è ora sincronizzato e pronto per funzionare con il tuo database Supabase.
+### Note Tecniche:
+La ricorsione infinita è causata dalle policy RLS che tentano di controllare il ruolo admin consultando la tabella users, che a sua volta richiede le stesse policy. La soluzione temporanea disabilita RLS permettendo l'accesso completo al database.

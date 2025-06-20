@@ -15,42 +15,26 @@ class ScoreApp {
         try {
             this.showLoading(true);
             
-            // First, check if we can connect to database without throwing errors
-            let canAccessDatabase = false;
-            try {
-                const { data, error } = await supabase
-                    .from('scores')
-                    .select('count', { count: 'exact', head: true });
-                
-                if (!error) {
-                    canAccessDatabase = true;
-                }
-            } catch (dbError) {
-                // Database access failed
-                canAccessDatabase = false;
-            }
-            
-            if (!canAccessDatabase) {
-                // Show demo data instead of errors
-                this.showDatabaseSetupMessage();
-                this.loadDemoScores();
-                return;
-            }
-            
-            // Database is accessible, load real data
             const { data: scores, error } = await supabase
                 .from('scores')
                 .select('*')
                 .order('created_at', { ascending: false });
 
             if (error) {
+                // If permission denied, table not found, or recursion error
+                if (error.code === '42501' || error.code === '42P01' || error.code === '42P17') {
+                    this.showDatabaseSetupMessage();
+                    this.loadDemoScores();
+                    return;
+                }
                 throw error;
             }
 
             this.scores = scores || [];
+            console.log('Scores loaded from database:', this.scores.length);
             this.renderScores();
         } catch (error) {
-            console.error('Database connection issue:', error);
+            console.error('Error loading scores:', error);
             this.showDatabaseSetupMessage();
             this.loadDemoScores();
         } finally {
@@ -412,11 +396,11 @@ class ScoreApp {
         if (document.querySelector('.database-setup-alert')) return;
         
         const alertDiv = document.createElement('div');
-        alertDiv.className = 'alert alert-info alert-dismissible fade show database-setup-alert';
+        alertDiv.className = 'alert alert-warning alert-dismissible fade show database-setup-alert';
         alertDiv.innerHTML = `
-            <i class="fas fa-info-circle me-2"></i>
-            <strong>Modalità Demo:</strong> Stai visualizzando dati di esempio. 
-            Per abilitare tutte le funzionalità, configura il database seguendo le istruzioni in <strong>README-SETUP.md</strong>.
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            <strong>Policy Error Detected:</strong> Errore nelle policy del database. 
+            Esegui <code>emergency-fix.sql</code> nel SQL Editor di Supabase per risolvere.
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         `;
         

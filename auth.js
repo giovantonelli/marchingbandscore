@@ -43,6 +43,9 @@ class AuthManager {
                 this.userProfile = profile;
                 this.isAdmin = profile.role === 'admin';
                 console.log('User profile loaded:', { email: profile.email, role: profile.role, isAdmin: this.isAdmin });
+                
+                // Update UI immediately after profile is loaded
+                this.updateUI();
             } else {
                 console.error('Failed to load or create user profile');
                 this.userProfile = null;
