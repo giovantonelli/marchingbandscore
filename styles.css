@@ -13,6 +13,9 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Hero Section */
@@ -321,4 +324,12 @@ body {
 .alert-info {
     background: #cce7ff;
     color: #004085;
+}
+
+main, .container {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
 }
