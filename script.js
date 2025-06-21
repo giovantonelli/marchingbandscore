@@ -80,6 +80,7 @@ class ScoreApp {
             const modal = document.getElementById('scoreModal');
             const modalTitle = document.getElementById('scoreModalTitle');
             const modalBody = document.getElementById('scoreModalBody');
+            // Footer con tasto Chiudi e Contattami
             const modalFooter = document.getElementById('scoreModalFooter');
 
             modalTitle.textContent = score.title;
@@ -120,9 +121,12 @@ class ScoreApp {
                 </div>
             `;
 
-            // Footer solo chiudi
+            // Footer con tasto Chiudi e Contattami
             modalFooter.innerHTML = `
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                <a href='contatti.html' class='btn btn-info'>
+                  <i class='fas fa-envelope me-1'></i>Contattami
+                </a>
+                <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Chiudi</button>
             `;
 
             const bsModal = new bootstrap.Modal(modal);
