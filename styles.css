@@ -26,6 +26,7 @@ body {
     min-height: 500px;
     display: flex;
     align-items: center;
+    margin-top: 0 !important;
 }
 
 .hero-image {
@@ -181,6 +182,67 @@ body {
     }
 }
 
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 30px 0;
+        min-height: unset;
+    }
+    .hero-icon {
+        font-size: 60px;
+    }
+    .score-card {
+        margin-bottom: 20px;
+    }
+    .score-image {
+        height: 120px;
+        font-size: 32px;
+    }
+    .card-body h5.card-title {
+        font-size: 1.1rem;
+    }
+    .score-price {
+        font-size: 1.1rem;
+    }
+    .modal-lg {
+        max-width: 98vw;
+        margin: 0;
+    }
+    .modal-body .row {
+        flex-direction: column;
+    }
+    .modal-body .col-md-4, .modal-body .col-md-8 {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    .preview-pdf {
+        height: 220px;
+    }
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+    .btn {
+        font-size: 0.95rem;
+        padding: 0.5rem 1rem;
+    }
+    .container {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-section {
+        padding: 15px 0;
+    }
+    .navbar-brand {
+        font-size: 0.95rem;
+    }
+    .btn {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.7rem;
+    }
+}
+
 /* Utility Classes */
 .text-muted {
     color: var(--secondary-color) !important;
@@ -332,4 +394,8 @@ main, .container {
 
 footer {
     flex-shrink: 0;
+}
+
+nav.navbar {
+    margin-bottom: 0 !important;
 }
