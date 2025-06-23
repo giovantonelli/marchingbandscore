@@ -4,23 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Termini di Servizio - Marching Band Score</title>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Marching Band Score" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container py-5">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-music me-2"></i>Marching Band Score
+      </a>
+    </div>
+  </nav>
+  <main class="container py-5">
     <h1>Termini di Servizio</h1>
     <p>Ultimo aggiornamento: 23 giugno 2025</p>
-    <p>Questi Termini di Servizio regolano l’accesso e l’utilizzo del sito Marching Band Score. Utilizzando il sito, accetti i presenti termini. Se non sei d’accordo, ti invitiamo a non utilizzare il sito.</p>
     <h2>1. Oggetto del Servizio</h2>
-    <p>Il sito offre spartiti e risorse musicali per bande e orchestre. I contenuti sono protetti da copyright e non possono essere distribuiti senza autorizzazione.</p>
-    <h2>2. Proprietà Intellettuale</h2>
+    <p>Il sito offre spartiti e risorse musicali per bande e orchestre. Gli spartiti sono protetti da copyright e concessi in licenza d’uso limitata.</p>
+    <h2>2. Licenza d’uso degli spartiti</h2>
+    <ul>
+      <li>Gli spartiti acquistati o scaricati sono destinati esclusivamente all’uso personale o didattico dell’acquirente.</li>
+      <li>È vietata la rivendita, la distribuzione, la pubblicazione o la condivisione degli spartiti senza autorizzazione scritta dell’autore.</li>
+      <li>È consentito l’utilizzo degli spartiti in contesti pubblici e privati (prove, concerti, esibizioni, concorsi, ecc.) solo se viene sempre citato l’arrangiatore: “Arrangiamento di Giovanni Antonelli – marchingbandscore.it”.</li>
+      <li>Ogni violazione comporterà la revoca della licenza d’uso e potrà essere perseguita secondo la legge.</li>
+    </ul>
+    <h2>3. Proprietà Intellettuale</h2>
     <p>Tutti i contenuti presenti sul sito sono di proprietà di Giovanni Antonelli o dei rispettivi autori. È vietata la riproduzione senza consenso.</p>
-    <h2>3. Limitazione di Responsabilità</h2>
+    <h2>4. Limitazione di Responsabilità</h2>
     <p>Il sito non è responsabile per eventuali danni derivanti dall’uso delle informazioni o dei servizi offerti.</p>
-    <h2>4. Modifiche</h2>
+    <h2>5. Modifiche</h2>
     <p>Ci riserviamo il diritto di modificare i termini in qualsiasi momento. Le modifiche saranno pubblicate su questa pagina.</p>
-    <h2>5. Contatti</h2>
+    <h2>6. Contatti</h2>
     <p>Per domande: <a href="mailto:giov.antonelli@virgilio.it">giov.antonelli@virgilio.it</a></p>
-  </div>
+  </main>
+  <footer class="bg-dark text-light py-3 mt-5">
+    <div class="container text-center">
+      <p class="mb-1">© <span id="footerYear"></span> Marching Band Score — Realizzato da Giovanni Antonelli</p>
+      <div class="footer-links">
+        <a href="termini.html" class="text-info mx-2">Termini di Servizio</a> |
+        <a href="privacy.html" class="text-info mx-2">Privacy Policy</a> |
+        <a href="cookie-policy.html" class="text-info mx-2">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
