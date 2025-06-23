@@ -189,44 +189,26 @@ body {
     }
     .hero-icon {
         font-size: 60px;
+        margin-top: 20px;
+        margin-bottom: 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        position: static;
     }
-    .score-card {
-        margin-bottom: 20px;
+    .hero-image {
+        margin-bottom: 0;
+        margin-top: 10px;
+        text-align: center;
     }
-    .score-image {
-        height: 120px;
-        font-size: 32px;
+    .col-lg-6:last-child .hero-image {
+        margin-top: 0;
     }
-    .card-body h5.card-title {
-        font-size: 1.1rem;
+    .col-lg-6 {
+        margin-bottom: 0 !important;
     }
-    .score-price {
-        font-size: 1.1rem;
-    }
-    .modal-lg {
-        max-width: 98vw;
-        margin: 0;
-    }
-    .modal-body .row {
-        flex-direction: column;
-    }
-    .modal-body .col-md-4, .modal-body .col-md-8 {
-        max-width: 100%;
-        flex: 0 0 100%;
-    }
-    .preview-pdf {
-        height: 220px;
-    }
-    .navbar-brand {
-        font-size: 1.1rem;
-    }
-    .btn {
-        font-size: 0.95rem;
-        padding: 0.5rem 1rem;
-    }
-    .container {
-        padding-left: 8px;
-        padding-right: 8px;
+    .btn.btn-lg {
+        margin-bottom: 10px;
     }
 }
 
