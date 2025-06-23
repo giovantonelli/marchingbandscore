@@ -29,6 +29,21 @@
     </style>
 </head>
 <body>
+  <div id="cookie-banner" class="cookie-banner bg-dark text-light p-3" style="display:none; position:fixed; bottom:0; left:0; width:100%; z-index:2000;">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+      <span>Questo sito utilizza cookie tecnici e, previo consenso, Google Analytics per statistiche anonime. <a href="cookie-policy.html" class="text-info">Scopri di più</a></span>
+      <button id="accept-cookies" class="btn btn-success ms-md-3 mt-2 mt-md-0">Accetta</button>
+    </div>
+  </div>
+  <script>
+    if (!localStorage.getItem('cookie_accepted')) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }
+    document.getElementById('accept-cookies').onclick = function() {
+      localStorage.setItem('cookie_accepted', 'yes');
+      document.getElementById('cookie-banner').style.display = 'none';
+    };
+  </script>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
           <div class="container">
             <a class="navbar-brand" href="index.html">

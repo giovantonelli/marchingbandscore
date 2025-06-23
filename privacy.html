@@ -23,6 +23,21 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div id="cookie-banner" class="cookie-banner bg-dark text-light p-3" style="display:none; position:fixed; bottom:0; left:0; width:100%; z-index:2000;">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+      <span>Questo sito utilizza cookie tecnici e, previo consenso, Google Analytics per statistiche anonime. <a href="cookie-policy.html" class="text-info">Scopri di più</a></span>
+      <button id="accept-cookies" class="btn btn-success ms-md-3 mt-2 mt-md-0">Accetta</button>
+    </div>
+  </div>
+  <script>
+    if (!localStorage.getItem('cookie_accepted')) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }
+    document.getElementById('accept-cookies').onclick = function() {
+      localStorage.setItem('cookie_accepted', 'yes');
+      document.getElementById('cookie-banner').style.display = 'none';
+    };
+  </script>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container">
       <a class="navbar-brand" href="index.html">
@@ -38,17 +53,14 @@
     <p>Giovanni Antonelli - <a href="mailto:giov.antonelli@virgilio.it">giov.antonelli@virgilio.it</a></p>
     <h2>2. Dati raccolti</h2>
     <ul>
-      <li>Il sito non raccoglie dati personali in modo automatico, salvo il consenso esplicito per l’uso di Google Analytics.</li>
+      <li>Il sito non raccoglie dati personali in modo automatico</li>
       <li>L’utente può fornire dati personali (es. nome, email, telefono) solo volontariamente, ad esempio scrivendo all’indirizzo email o chiamando il numero indicato nella sezione Contatti.</li>
-      <li>Se l’utente acconsente, vengono raccolti dati statistici anonimi tramite Google Analytics.</li>
     </ul>
     <h2>3. Finalità e base giuridica</h2>
     <p>I dati eventualmente forniti sono utilizzati solo per rispondere alle richieste dell’utente e non vengono comunicati a terzi né utilizzati per finalità di marketing. I dati raccolti tramite Google Analytics sono usati solo per statistiche aggregate e anonime.</p>
     <h2>4. Cookie</h2>
-    <p>Il sito utilizza cookie tecnici necessari al funzionamento della piattaforma e, previo consenso, cookie di terze parti (Google Analytics). Per dettagli consulta la <a href="cookie-policy.html">Cookie Policy</a>.</p>
-    <h2>5. Diritti dell’utente</h2>
-    <p>L’utente può richiedere in qualsiasi momento l’accesso, la rettifica o la cancellazione dei dati scrivendo a <a href="mailto:giov.antonelli@virgilio.it">giov.antonelli@virgilio.it</a>.</p>
-    <h2>6. Modifiche</h2>
+    <p>Il sito utilizza cookie tecnici necessari al funzionamento della piattaforma e cookie di terze parti (Google Analytics). Per dettagli consulta la <a href="cookie-policy.html">Cookie Policy</a>.</p>
+    <h2>5. Modifiche</h2>
     <p>La presente informativa può essere aggiornata. Le modifiche saranno pubblicate su questa pagina.</p>
   </main>
   <footer class="bg-dark text-light py-3 mt-5">
