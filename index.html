@@ -1,9 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marching Band Score - Orchestra Hub</title>
+    <title>Marching Band Score - Spartiti per Bande e Orchestre</title>
+    <meta name="description" content="La piattaforma leader per spartiti professionali di bande musicali e orchestre. Arrangiamenti di qualità da Giovanni Antonelli." />
+    <meta name="author" content="Giovanni Antonelli" />
+    <meta name="keywords" content="spartiti, banda musicale, orchestra, arrangiamenti, musica, Giovanni Antonelli" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://marchingbandscore.lovable.app/" />
+    <meta property="og:title" content="Marching Band Score - Spartiti per Bande e Orchestre" />
+    <meta property="og:description" content="La piattaforma leader per spartiti professionali di bande musicali e orchestre. Arrangiamenti di qualità da Giovanni Antonelli." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=630&fit=crop" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://marchingbandscore.lovable.app/" />
+    <meta name="twitter:title" content="Marching Band Score - Spartiti per Bande e Orchestre" />
+    <meta name="twitter:description" content="La piattaforma leader per spartiti professionali di bande musicali e orchestre." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=630&fit=crop" />
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJPX0X7Q0K"></script>
     <script>
@@ -12,79 +31,163 @@
       gtag('js', new Date());
       gtag('config', 'G-MJPX0X7Q0K');
     </script>
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
     <link rel="shortcut icon" href="/favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Marching Band Score" />
     <link rel="manifest" href="/favicon/site.webmanifest" />
+
+    <!-- Bootstrap 5 and Font Awesome -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="cookie-banner" class="cookie-banner bg-dark text-light p-3" style="display:none; position:fixed; bottom:0; left:0; width:100%; z-index:2000;">
-    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
-      <span>Questo sito utilizza cookie tecnici e, previo consenso, Google Analytics per statistiche anonime. <a href="cookie-policy.html" class="text-info">Scopri di più</a></span>
-      <button id="accept-cookies" class="btn btn-success ms-md-3 mt-2 mt-md-0">Accetta</button>
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner bg-dark text-light p-3" style="display:none; position:fixed; bottom:0; left:0; width:100%; z-index:2000;">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+            <span>Questo sito utilizza cookie tecnici e, previo consenso, Google Analytics per statistiche anonime. <a href="cookie-policy.html" class="text-info">Scopri di più</a></span>
+            <button id="accept-cookies" class="btn btn-success ms-md-3 mt-2 mt-md-0">Accetta</button>
+        </div>
     </div>
-  </div>
-  <script>
-    if (!localStorage.getItem('cookie_accepted')) {
-      document.getElementById('cookie-banner').style.display = 'block';
-    }
-    document.getElementById('accept-cookies').onclick = function() {
-      localStorage.setItem('cookie_accepted', 'yes');
-      document.getElementById('cookie-banner').style.display = 'none';
-    };
-  </script>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-          <div class="container">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
             <a class="navbar-brand" href="index.html">
-              <i class="fas fa-music me-2"></i>Marching Band Score
+                <i class="fas fa-music me-2"></i>Marching Band Score
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-              <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="btn btn-outline-info ms-2" href="contatti.html">
-                    <i class="fas fa-envelope me-1"></i>Contatti
-                  </a>
-                </li>
-              </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-info ms-2" href="contatti.html">
+                            <i class="fas fa-envelope me-1"></i>Contatti
+                        </a>
+                    </li>
+                </ul>
             </div>
-          </div>
-        </nav>
-        <main>
+        </div>
+    </nav>
+
+    <main>
         <!-- Hero Section -->
-        <section class="hero-section">
+        <section class="hero-section bg-gradient-to-br from-slate-50 to-blue-50 py-5">
             <div class="container">
-                <div class="row align-items-center">
+                <div class="row align-items-center min-vh-50">
                     <div class="col-lg-6">
-                        <h1 class="display-4 fw-bold mb-4">Spartiti per Bande Musicali</h1>
-                        <p class="lead mb-4">Scopri la nostra collezione di spartiti professionali per bande musicali e orchestre. Qualità garantita e download immediato.</p>
-                        <a href="#scores" class="btn btn-primary btn-lg">Esplora Spartiti</a>
+                        <div class="animate-fade-in">
+                            <h1 class="display-3 fw-bold mb-4">
+                                La Tua <span class="text-primary">Musica</span> Prende Vita
+                            </h1>
+                            <p class="lead mb-4">
+                                Scopri la collezione più completa di spartiti per bande musicali e orchestre, 
+                                arrangiati con passione e precisione professionale.
+                            </p>
+                            <div class="d-flex flex-column flex-sm-row gap-3">
+                                <a href="#scores" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-music me-2"></i>Esplora Spartiti
+                                </a>
+                                <a href="contatti.html" class="btn btn-outline-primary btn-lg">
+                                    Scopri Giovanni Antonelli
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="hero-image">
-                            <i class="fas fa-music hero-icon"></i>
+                        <div class="hero-image text-center">
+                            <i class="fas fa-music hero-icon text-primary" style="font-size: 15rem; opacity: 0.1;"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Scores Section -->
-        <section id="scores" class="py-5">
+        <!-- Search and Filter Section -->
+        <section class="py-5 bg-white">
             <div class="container">
-                <h2 class="text-center mb-5">Spartiti Disponibili</h2>
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-4">Collezione Spartiti</h2>
+                    <p class="lead">
+                        Esplora la nostra vasta collezione di spartiti professionali per ogni livello e strumentazione
+                    </p>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="row justify-content-center mb-5">
+                    <div class="col-md-6">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text">
+                                <i class="fas fa-search text-muted"></i>
+                            </span>
+                            <input type="text" id="searchInput" class="form-control" placeholder="Cerca spartiti per titolo o genere...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scores Section -->
                 <div class="row" id="scoresContainer">
                     <!-- Scores will be loaded here dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-4">
+                        Perché Scegliere Marching Band Score
+                    </h2>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="text-center p-4 bg-white rounded shadow-sm h-100">
+                            <div class="mb-4">
+                                <i class="fas fa-music fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Qualità Professionale</h5>
+                            <p class="text-muted">
+                                Tutti gli spartiti sono arrangiati da Giovanni Antonelli, 
+                                musicista professionista con anni di esperienza.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="text-center p-4 bg-white rounded shadow-sm h-100">
+                            <div class="mb-4">
+                                <i class="fas fa-download fa-3x text-success"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Download Immediato</h5>
+                            <p class="text-muted">
+                                Contatta direttamente Giovanni per ricevere 
+                                i tuoi spartiti in formato PDF di alta qualità.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="text-center p-4 bg-white rounded shadow-sm h-100">
+                            <div class="mb-4">
+                                <i class="fas fa-star fa-3x text-warning"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Supporto Dedicato</h5>
+                            <p class="text-muted">
+                                Assistenza personalizzata per ogni esigenza musicale 
+                                e arrangiamenti su misura.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -108,27 +211,48 @@
         </div>
 
         <!-- Loading Spinner -->
-        <div id="loadingSpinner" class="d-none">
+        <div id="loadingSpinner" class="d-none text-center py-5">
             <div class="spinner-border text-primary" role="status">
                 <span class="visually-hidden">Caricamento...</span>
             </div>
         </div>
-        </main>
-        <footer class="bg-dark text-light py-3 mt-5">
-          <div class="container text-center">
-            <p class="mb-1">© <span id="footerYear"></span> Marching Band Score — Realizzato da Giovanni Antonelli</p>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-2">© <span id="footerYear"></span> Marching Band Score — Realizzato da Giovanni Antonelli</p>
             <div class="footer-links">
-              <a href="termini.html" class="text-info mx-2">Termini di Servizio</a>|
-              <a href="privacy.html" class="text-info mx-2">Privacy Policy</a>|
-              <a href="cookie-policy.html" class="text-info mx-2">Cookie Policy</a>
+                <a href="termini.html" class="text-info mx-2">Termini di Servizio</a> |
+                <a href="privacy.html" class="text-info mx-2">Privacy Policy</a> |
+                <a href="cookie-policy.html" class="text-info mx-2">Cookie Policy</a>
             </div>
-          </div>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="products.js"></script>
-        <script src="script.js"></script>
-        <script>
-          document.getElementById('footerYear').textContent = new Date().getFullYear();
-        </script>
-    </body>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Cookie management
+        if (!localStorage.getItem('cookie_accepted')) {
+            document.getElementById('cookie-banner').style.display = 'block';
+        }
+        document.getElementById('accept-cookies').onclick = function() {
+            localStorage.setItem('cookie_accepted', 'yes');
+            document.getElementById('cookie-banner').style.display = 'none';
+        };
+
+        // Update footer year
+        document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            if (window.app) {
+                window.app.filterScores(e.target.value);
+            }
+        });
+    </script>
+</body>
 </html>

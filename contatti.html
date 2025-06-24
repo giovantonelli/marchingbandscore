@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -26,112 +27,320 @@
             transform: scale(1.08);
             box-shadow: 0 0 0 4px #b3d4fc;
         }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
     </style>
 </head>
 <body>
-  <div id="cookie-banner" class="cookie-banner bg-dark text-light p-3" style="display:none; position:fixed; bottom:0; left:0; width:100%; z-index:2000;">
-    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
-      <span>Questo sito utilizza cookie tecnici e, previo consenso, Google Analytics per statistiche anonime. <a href="cookie-policy.html" class="text-info">Scopri di più</a></span>
-      <button id="accept-cookies" class="btn btn-success ms-md-3 mt-2 mt-md-0">Accetta</button>
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner bg-dark text-light p-3" style="display:none; position:fixed; bottom:0; left:0; width:100%; z-index:2000;">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+            <span>Questo sito utilizza cookie tecnici e, previo consenso, Google Analytics per statistiche anonime. <a href="cookie-policy.html" class="text-info">Scopri di più</a></span>
+            <button id="accept-cookies" class="btn btn-success ms-md-3 mt-2 mt-md-0">Accetta</button>
+        </div>
     </div>
-  </div>
-  <script>
-    if (!localStorage.getItem('cookie_accepted')) {
-      document.getElementById('cookie-banner').style.display = 'block';
-    }
-    document.getElementById('accept-cookies').onclick = function() {
-      localStorage.setItem('cookie_accepted', 'yes');
-      document.getElementById('cookie-banner').style.display = 'none';
-    };
-  </script>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-          <div class="container">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
             <a class="navbar-brand" href="index.html">
-              <i class="fas fa-music me-2"></i>Marching Band Score
+                <i class="fas fa-music me-2"></i>Marching Band Score
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-              <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="btn btn-outline-info ms-2" href="contatti.html">
-                    <i class="fas fa-envelope me-1"></i>Contatti
-                  </a>
-                </li>
-              </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-info ms-2" href="contatti.html">
+                            <i class="fas fa-envelope me-1"></i>Contatti
+                        </a>
+                    </li>
+                </ul>
             </div>
-          </div>
-        </nav>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card shadow-sm mb-5">
-                    <div class="card-body p-4">
-                        <div class="row align-items-center mb-4">
-                            <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
-                                <img src="uploads/profile.jpg" alt="Foto profilo Giovanni Antonelli" class="rounded-circle shadow profile-img-hover" style="width: 140px; height: 140px; object-fit: cover; border: 4px solid #eee; transition: transform 0.3s;">
-                            </div>
-                            <div class="col-md-8">
-                                <h1 class="mb-3"><i class="fas fa-address-card me-2"></i>Contatti</h1>
-                                <p class="lead mb-0">Ciao! Sono Giovanni Antonelli, arrangiatore e polistrumentista esperto in spartiti per marching band moderne. Offro arrangiamenti originali e adattamenti di brani celebri per ogni tipo di formazione.</p>
-                            </div>
-                        </div>
-                        <hr class="my-4">
-                        <div>
-                            <strong>Strumenti:</strong>
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <ul class="mb-2">
-                                        <li>Clarinetto in Sib</li>
-                                        <li>Sax contralto</li>
-                                        <li>Sax tenore</li>
-                                        <li>Sax baritono</li>
-                                        <li>Corno in Fa/Mib</li>
-                                    </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-5 bg-gradient-to-br from-slate-50 to-blue-50">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h1 class="display-4 fw-bold mb-4">
+                        Incontra il <span class="text-primary">Maestro</span>
+                    </h1>
+                    <p class="lead">
+                        Scopri Giovanni Antonelli, arrangiatore e polistrumentista professionista 
+                        dietro ogni spartito della nostra collezione
+                    </p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card shadow-lg">
+                            <div class="card-body p-5">
+                                <div class="row align-items-center mb-5">
+                                    <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+                                        <img src="uploads/profile.jpg" alt="Foto profilo Giovanni Antonelli" 
+                                             class="rounded-circle shadow profile-img-hover" 
+                                             style="width: 200px; height: 200px; object-fit: cover; border: 4px solid #eee; transition: transform 0.3s;">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h2 class="fw-bold mb-2">Giovanni Antonelli</h2>
+                                        <p class="text-primary fs-5 mb-4">
+                                            Arrangiatore & Polistrumentista Professionista
+                                        </p>
+                                        
+                                        <div class="mb-4">
+                                            <span class="badge bg-primary me-2 mb-2">Arrangiatore</span>
+                                            <span class="badge bg-secondary me-2 mb-2">Compositore</span>
+                                            <span class="badge bg-success me-2 mb-2">Direttore d'Orchestra</span>
+                                            <span class="badge bg-warning text-dark me-2 mb-2">Polistrumentista</span>
+                                        </div>
+
+                                        <p class="lead">
+                                            Ciao! Sono Giovanni Antonelli, arrangiatore e polistrumentista esperto in spartiti per marching band moderne. 
+                                            Offro arrangiamenti originali e adattamenti di brani celebri per ogni tipo di formazione.
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <ul class="mb-2">
-                                        <li>Sax soprano</li>
-                                        <li>Contrabbasso tuba in Sib</li>
-                                        <li>Trombone tenore</li>
-                                        <li>Tromba</li>
-                                        <li>Percussioni</li>
-                                    </ul>
+
+                                <hr class="my-5">
+
+                                <!-- Instruments Section -->
+                                <div class="mb-5">
+                                    <h4 class="fw-bold mb-4"><i class="fas fa-music me-2"></i>Strumenti</h4>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Clarinetto in Sib</li>
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Sax contralto</li>
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Sax tenore</li>
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Sax baritono</li>
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Corno in Fa/Mib</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Sax soprano</li>
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Contrabbasso tuba in Sib</li>
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Trombone tenore</li>
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Tromba</li>
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Percussioni</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Stats -->
+                                <div class="row text-center mb-5">
+                                    <div class="col-md-6">
+                                        <div class="p-4 bg-light rounded">
+                                            <div class="display-6 fw-bold text-primary">200+</div>
+                                            <div class="text-muted">Arrangiamenti</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-4 bg-light rounded">
+                                            <div class="display-6 fw-bold text-primary">15+</div>
+                                            <div class="text-muted">Anni di Esperienza</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr class="my-5">
+
+                                <!-- Contact Information -->
+                                <div class="mb-5">
+                                    <h4 class="fw-bold mb-4"><i class="fas fa-address-card me-2"></i>Come acquistare gli spartiti</h4>
+                                    <p class="lead mb-4">Per ricevere informazioni, richiedere un preventivo o acquistare uno spartito, puoi contattarmi direttamente:</p>
                                 </div>
                             </div>
-                        </div>
-                        <hr>
-                        <h5 class="mb-3">Come acquistare gli spartiti</h5>
-                        <p>Per ricevere informazioni, richiedere un preventivo o acquistare uno spartito, puoi contattarmi direttamente:</p>
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i><strong>Email:</strong> <a href="mailto:giov.antonelli@virgilio.it">giov.antonelli@virgilio.it</a></li>
-                            <li class="mb-2"><i class="fab fa-whatsapp me-2 text-success"></i><strong>WhatsApp:</strong> <a href="https://wa.me/393405861440" target="_blank">+39 340 5861440</a></li>
-                            <li class="mb-2"><i class="fab fa-facebook me-2 text-primary"></i><strong>Facebook:</strong> <a href="https://www.facebook.com/Giovanni.Antonelli05/" target="_blank">Giovanni Antonelli</a></li>
-                            <li class="mb-2"><i class="fab fa-instagram me-2 text-danger"></i><strong>Instagram:</strong> <a href="https://www.instagram.com/giovantonelli5_/" target="_blank">giovantonelli5_</a></li>
-                        </ul>
-                        <p>Rispondo sempre entro poche ore. Puoi anche richiedere arrangiamenti personalizzati o consulenze per progetti musicali!</p>
-                        <div class="text-center mt-4">
-                            <a href="index.html" class="btn btn-outline-primary"><i class="fas fa-arrow-left me-1"></i> Torna alla Home</a>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Contact Cards -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-4">Mettiamoci in Contatto</h2>
+                    <p class="lead">Hai domande sui nostri spartiti o cerchi un arrangiamento personalizzato?</p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Email Card -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card contact-card h-100 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="mb-4">
+                                    <i class="fas fa-envelope fa-3x text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-3">Email</h5>
+                                <p class="text-muted mb-3">Scrivimi per informazioni</p>
+                                <p class="fw-bold text-primary mb-3">
+                                    <a href="mailto:giov.antonelli@virgilio.it" class="text-decoration-none">
+                                        giov.antonelli@virgilio.it
+                                    </a>
+                                </p>
+                                <a href="mailto:giov.antonelli@virgilio.it" class="btn btn-primary">
+                                    <i class="fas fa-envelope me-2"></i>Invia Email
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Card -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card contact-card h-100 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="mb-4">
+                                    <i class="fab fa-whatsapp fa-3x text-success"></i>
+                                </div>
+                                <h5 class="fw-bold mb-3">WhatsApp</h5>
+                                <p class="text-muted mb-3">Messaggio immediato</p>
+                                <p class="fw-bold text-success mb-3">
+                                    <a href="https://wa.me/393405861440" class="text-decoration-none" target="_blank">
+                                        +39 340 5861440
+                                    </a>
+                                </p>
+                                <a href="https://wa.me/393405861440" target="_blank" class="btn btn-success">
+                                    <i class="fab fa-whatsapp me-2"></i>Contatta su WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Facebook Card -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card contact-card h-100 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="mb-4">
+                                    <i class="fab fa-facebook fa-3x text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-3">Facebook</h5>
+                                <p class="text-muted mb-3">Seguimi sui social</p>
+                                <p class="fw-bold text-primary mb-3">
+                                    <a href="https://www.facebook.com/Giovanni.Antonelli05/" class="text-decoration-none" target="_blank">
+                                        Giovanni Antonelli
+                                    </a>
+                                </p>
+                                <a href="https://www.facebook.com/Giovanni.Antonelli05/" target="_blank" class="btn btn-primary">
+                                    <i class="fab fa-facebook me-2"></i>Visita Pagina
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Card -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card contact-card h-100 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="mb-4">
+                                    <i class="fab fa-instagram fa-3x text-danger"></i>
+                                </div>
+                                <h5 class="fw-bold mb-3">Instagram</h5>
+                                <p class="text-muted mb-3">Foto e video</p>
+                                <p class="fw-bold text-danger mb-3">
+                                    <a href="https://www.instagram.com/giovantonelli5_/" class="text-decoration-none" target="_blank">
+                                        @giovantonelli5_
+                                    </a>
+                                </p>
+                                <a href="https://www.instagram.com/giovantonelli5_/" target="_blank" class="btn btn-danger">
+                                    <i class="fab fa-instagram me-2"></i>Segui su Instagram
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <p class="lead">Rispondo sempre entro poche ore. Puoi anche richiedere arrangiamenti personalizzati o consulenze per progetti musicali!</p>
+                    <a href="index.html" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-arrow-left me-2"></i>Torna alla Home
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-4">I Miei Servizi</h2>
+                    <p class="lead">Offro soluzioni complete per ogni esigenza musicale</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="text-center p-4 bg-white rounded shadow-sm h-100">
+                            <i class="fas fa-music fa-3x text-primary mb-3"></i>
+                            <h5 class="fw-bold mb-3">Arrangiamenti</h5>
+                            <p class="text-muted">Trascrizioni e arrangiamenti per ogni organico</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="text-center p-4 bg-white rounded shadow-sm h-100">
+                            <i class="fas fa-award fa-3x text-warning mb-3"></i>
+                            <h5 class="fw-bold mb-3">Composizioni</h5>
+                            <p class="text-muted">Brani originali su commissione</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="text-center p-4 bg-white rounded shadow-sm h-100">
+                            <i class="fas fa-users fa-3x text-success mb-3"></i>
+                            <h5 class="fw-bold mb-3">Consulenza</h5>
+                            <p class="text-muted">Supporto per direttori e musicisti</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="text-center p-4 bg-white rounded shadow-sm h-100">
+                            <i class="fas fa-clock fa-3x text-info mb-3"></i>
+                            <h5 class="fw-bold mb-3">Urgenze</h5>
+                            <p class="text-muted">Servizio express per esigenze immediate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-2">© <span id="footerYear"></span> Marching Band Score — Realizzato da Giovanni Antonelli</p>
+            <div class="footer-links">
+                <a href="termini.html" class="text-info mx-2">Termini di Servizio</a> |
+                <a href="privacy.html" class="text-info mx-2">Privacy Policy</a> |
+                <a href="cookie-policy.html" class="text-info mx-2">Cookie Policy</a>
+            </div>
         </div>
-    </div>
-    <footer class="bg-dark text-light py-3 mt-5">
-          <div class="container text-center">
-            <p class="mb-0">© <span id="footerYear"></span> Marching Band Score — Realizzato da Giovanni Antonelli</p>
-          </div>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="products.js"></script>
-        <script src="script.js"></script>
-        <script>
-          document.getElementById('footerYear').textContent = new Date().getFullYear();
-        </script>
-    </body>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Cookie management
+        if (!localStorage.getItem('cookie_accepted')) {
+            document.getElementById('cookie-banner').style.display = 'block';
+        }
+        document.getElementById('accept-cookies').onclick = function() {
+            localStorage.setItem('cookie_accepted', 'yes');
+            document.getElementById('cookie-banner').style.display = 'none';
+        };
+
+        // Update footer year
+        document.getElementById('footerYear').textContent = new Date().getFullYear();
+    </script>
+</body>
 </html>

@@ -1,3 +1,4 @@
+
 // Elenco spartiti statico, generato da SQL
 const PRODUCTS = [
   {
@@ -9,7 +10,9 @@ const PRODUCTS = [
     category: 'Pop',
     cover_url: 'uploads/ymca.jpg',
     audio_url: null,
-    preview_url: null
+    preview_url: null,
+    rating: 4.8,
+    downloads: 1250
   },
   {
     id: '2',
@@ -20,18 +23,22 @@ const PRODUCTS = [
     category: 'Pop Italiano',
     cover_url: 'uploads/sara-perche-ti-amo.jpg',
     audio_url: null,
-    preview_url: null
+    preview_url: null,
+    rating: 4.6,
+    downloads: 890
   },
   {
     id: '3',
-    title: 'L’amour toujours',
+    title: "L'amour toujours",
     composer: 'Italiana',
-    description: 'Arrangiamento per marching band del celebre successo dance di Gigi D’Agostino.\nMelodia iconica, groove elettronico adattato per strumenti a fiato e percussioni.\nPerfetto per sfilate, eventi e coreografie moderne: include break strumentale e finale coinvolgente.',
+    description: 'Arrangiamento per marching band del celebre successo dance di Gigi D\'Agostino.\nMelodia iconica, groove elettronico adattato per strumenti a fiato e percussioni.\nPerfetto per sfilate, eventi e coreografie moderne: include break strumentale e finale coinvolgente.',
     price: 24.00,
     category: 'Dance',
     cover_url: 'uploads/img_685144db770332.40930450.jpg',
     audio_url: null,
-    preview_url: null
+    preview_url: null,
+    rating: 4.9,
+    downloads: 567
   },
   {
     id: '4',
@@ -42,7 +49,9 @@ const PRODUCTS = [
     category: 'Samba',
     cover_url: 'uploads/samba-do-brasil.jpg',
     audio_url: null,
-    preview_url: null
+    preview_url: null,
+    rating: 4.7,
+    downloads: 1100
   },
   {
     id: '5',
@@ -53,19 +62,22 @@ const PRODUCTS = [
     category: 'Dance',
     cover_url: 'uploads/freed-from-desire.jpg',
     audio_url: null,
-    preview_url: null
+    preview_url: null,
+    rating: 4.6,
+    downloads: 789
   },
   {
     id: '6',
     title: 'Rocky Theme + Final Countdown',
     composer: 'Americana/Svedese',
-    description: 
-      "Medley epico tra la colonna di Rocky e l'inno degli Europe. Transizioni dinamiche e finale maestoso ad alto impatto scenico.",
+    description: "Medley epico tra la colonna di Rocky e l'inno degli Europe. Transizioni dinamiche e finale maestoso ad alto impatto scenico.",
     price: 32.00,
     category: 'Medley',
     cover_url: 'uploads/rocky-countdown.jpg',
     audio_url: null,
-    preview_url: null
+    preview_url: null,
+    rating: 4.9,
+    downloads: 1567
   },
   {
     id: '7',
@@ -76,6 +88,21 @@ const PRODUCTS = [
     category: 'Rock',
     cover_url: 'uploads/seven-nation-army.jpg',
     audio_url: null,
-    preview_url: null
+    preview_url: null,
+    rating: 4.7,
+    downloads: 1234
+  },
+  {
+    id: '8',
+    title: 'Symphony No. 5 - Beethoven',
+    composer: 'Ludwig van Beethoven',
+    description: 'Arrangiamento della celebre Quinta Sinfonia di Beethoven per banda musicale. Adattamento fedele con dinamiche e tensioni dell\'originale.',
+    price: 35.00,
+    category: 'Classico',
+    cover_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop',
+    audio_url: null,
+    preview_url: null,
+    rating: 4.8,
+    downloads: 892
   }
 ];
