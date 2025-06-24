@@ -55,7 +55,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <i class="fas fa-music me-2"></i>Marching Band Score
@@ -80,31 +80,27 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero-section bg-gradient-to-br from-slate-50 to-blue-50 py-5">
+        <section class="hero-section-modern">
+            <div class="hero-overlay"></div>
             <div class="container">
-                <div class="row align-items-center min-vh-50">
-                    <div class="col-lg-6">
-                        <div class="animate-fade-in">
-                            <h1 class="display-3 fw-bold mb-4">
-                                La Tua <span class="text-primary">Musica</span> Prende Vita
+                <div class="row align-items-center min-vh-100">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <div class="hero-content">
+                            <h1 class="hero-title mb-4">
+                                La Tua <span class="text-gradient">Musica</span> Prende Vita
                             </h1>
-                            <p class="lead mb-4">
+                            <p class="hero-subtitle mb-5">
                                 Scopri la collezione più completa di spartiti per bande musicali e orchestre, 
                                 arrangiati con passione e precisione professionale.
                             </p>
-                            <div class="d-flex flex-column flex-sm-row gap-3">
-                                <a href="#scores" class="btn btn-primary btn-lg">
+                            <div class="hero-buttons">
+                                <a href="#scores" class="btn btn-hero btn-primary btn-lg me-3 mb-3">
                                     <i class="fas fa-music me-2"></i>Esplora Spartiti
                                 </a>
-                                <a href="contatti.html" class="btn btn-outline-primary btn-lg">
-                                    Scopri Giovanni Antonelli
+                                <a href="contatti.html" class="btn btn-hero btn-outline-light btn-lg mb-3">
+                                    <i class="fas fa-user me-2"></i>Scopri Giovanni Antonelli
                                 </a>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="hero-image text-center">
-                            <i class="fas fa-music hero-icon text-primary" style="font-size: 15rem; opacity: 0.1;"></i>
                         </div>
                     </div>
                 </div>
@@ -112,7 +108,7 @@
         </section>
 
         <!-- Search and Filter Section -->
-        <section class="py-5 bg-white">
+        <section class="py-5 bg-white" id="scores">
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="display-5 fw-bold mb-4">Collezione Spartiti</h2>
@@ -124,11 +120,11 @@
                 <!-- Search Bar -->
                 <div class="row justify-content-center mb-5">
                     <div class="col-md-6">
-                        <div class="input-group input-group-lg">
-                            <span class="input-group-text">
+                        <div class="input-group input-group-lg search-container">
+                            <span class="input-group-text bg-white border-end-0">
                                 <i class="fas fa-search text-muted"></i>
                             </span>
-                            <input type="text" id="searchInput" class="form-control" placeholder="Cerca spartiti per titolo o genere...">
+                            <input type="text" id="searchInput" class="form-control border-start-0 ps-0" placeholder="Cerca spartiti per titolo o genere...">
                         </div>
                     </div>
                 </div>
@@ -151,21 +147,21 @@
                 
                 <div class="row g-4">
                     <div class="col-md-4">
-                        <div class="text-center p-4 bg-white rounded shadow-sm h-100">
-                            <div class="mb-4">
+                        <div class="feature-card text-center p-4 bg-white rounded shadow-sm h-100">
+                            <div class="feature-icon mb-4">
                                 <i class="fas fa-music fa-3x text-primary"></i>
                             </div>
                             <h5 class="fw-bold mb-3">Qualità Professionale</h5>
                             <p class="text-muted">
                                 Tutti gli spartiti sono arrangiati da Giovanni Antonelli, 
-                                musicista professionista con anni di esperienza.
+                                musicista e polistrumentista con anni di esperienza.
                             </p>
                         </div>
                     </div>
                     
                     <div class="col-md-4">
-                        <div class="text-center p-4 bg-white rounded shadow-sm h-100">
-                            <div class="mb-4">
+                        <div class="feature-card text-center p-4 bg-white rounded shadow-sm h-100">
+                            <div class="feature-icon mb-4">
                                 <i class="fas fa-download fa-3x text-success"></i>
                             </div>
                             <h5 class="fw-bold mb-3">Download Immediato</h5>
@@ -177,8 +173,8 @@
                     </div>
                     
                     <div class="col-md-4">
-                        <div class="text-center p-4 bg-white rounded shadow-sm h-100">
-                            <div class="mb-4">
+                        <div class="feature-card text-center p-4 bg-white rounded shadow-sm h-100">
+                            <div class="feature-icon mb-4">
                                 <i class="fas fa-star fa-3x text-warning"></i>
                             </div>
                             <h5 class="fw-bold mb-3">Supporto Dedicato</h5>

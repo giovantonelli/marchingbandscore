@@ -60,6 +60,11 @@ class ScoreApp {
                             `<img src="${score.cover_url}" alt="${score.title}" class="card-img-top" style="width: 100%; height: 250px; object-fit: cover;">` :
                             `<div class="d-flex align-items-center justify-content-center bg-light" style="height: 250px;"><i class="fas fa-music fa-3x text-muted"></i></div>`
                         }
+                        ${score.audio_url ? `
+                            <div class="audio-preview-icon" title="Anteprima audio disponibile">
+                                <i class="fas fa-volume-up"></i>
+                            </div>
+                        ` : ''}
                         <div class="position-absolute top-0 end-0 p-3">
                             <span class="badge bg-primary fs-6">€${score.price}</span>
                         </div>
@@ -76,10 +81,6 @@ class ScoreApp {
                             <div class="d-flex align-items-center">
                                 <i class="fas fa-star text-warning me-1"></i>
                                 <span class="small fw-bold">${score.rating || 'N/A'}</span>
-                            </div>
-                            <div class="d-flex align-items-center text-muted">
-                                <i class="fas fa-download me-1"></i>
-                                <span class="small">${score.downloads || 0}</span>
                             </div>
                         </div>
                         
@@ -134,15 +135,11 @@ class ScoreApp {
                         </div>
                         
                         <div class="mb-3">
-                            <h6 class="fw-bold text-primary">Valutazione e Downloads</h6>
+                            <h6 class="fw-bold text-primary">Valutazione</h6>
                             <div class="d-flex align-items-center">
                                 <div class="me-4">
                                     <i class="fas fa-star text-warning me-1"></i>
                                     <span class="fw-bold">${score.rating || 'N/A'}</span>
-                                </div>
-                                <div>
-                                    <i class="fas fa-download text-muted me-1"></i>
-                                    <span>${score.downloads || 0} download</span>
                                 </div>
                             </div>
                         </div>
