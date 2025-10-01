@@ -573,3 +573,108 @@ html {
 .card, .btn, .modal-content {
     will-change: transform;
 }
+
+/* Page Header for secondary pages */
+.page-header {
+    position: relative;
+    min-height: 40vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop&crop=center');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05;
+    z-index: 1;
+}
+
+.page-header-content {
+    position: relative;
+    z-index: 2;
+}
+
+.page-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #6c757d;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Content wrapper for secondary pages */
+.content-wrapper {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+    border: 1px solid #e9ecef;
+}
+
+.content-wrapper h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.content-wrapper h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #495057;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 0.5rem;
+}
+
+.content-wrapper p {
+    line-height: 1.7;
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+.content-wrapper ul, .content-wrapper ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.content-wrapper li {
+    line-height: 1.6;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.content-wrapper a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.content-wrapper a:hover {
+    color: var(--dark-color);
+    text-decoration: underline;
+}
+
+/* Utility Classes */
+.min-vh-50 {
+    min-height: 50vh;
+}
