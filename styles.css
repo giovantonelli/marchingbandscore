@@ -21,7 +21,14 @@
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    padding-top: 76px; /* for fixed navbar */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Body padding for pages with fixed navbar */
+body.has-fixed-navbar {
+    padding-top: 76px;
 }
 
 /* Hero Section Modern */
@@ -399,8 +406,17 @@ body {
 
 /* Footer */
 footer {
-    margin-top: auto;
     background: linear-gradient(135deg, #212529 0%, #343a40 100%) !important;
+}
+
+/* Footer in pages with flex layout */
+body.has-fixed-navbar footer {
+    margin-top: auto;
+}
+
+/* Main content area for secondary pages */
+body:not(.has-fixed-navbar) main {
+    flex: 1;
 }
 
 .footer-links a {
@@ -438,7 +454,7 @@ footer {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    body {
+    body.has-fixed-navbar {
         padding-top: 70px;
     }
     
