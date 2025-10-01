@@ -34,6 +34,7 @@ body {
     display: flex;
     align-items: center;
     overflow: hidden;
+    margin-top: -76px; /* Compensate for body padding */
 }
 
 .hero-section-modern::before {
@@ -442,7 +443,7 @@ footer {
     }
     
     .hero-section-modern {
-        min-height: 80vh;
+        margin-top: -70px;
     }
     
     .hero-buttons {
