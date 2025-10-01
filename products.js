@@ -94,15 +94,16 @@ const PRODUCTS = [
   },
   {
     id: '8',
-    title: 'Symphony No. 5 - Beethoven',
-    composer: 'Ludwig van Beethoven',
-    description: 'Arrangiamento della celebre Quinta Sinfonia di Beethoven per banda musicale. Adattamento fedele con dinamiche e tensioni dell\'originale.',
-    price: 35.00,
-    category: 'Classico',
-    cover_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop',
+    title: 'Anema e Core',
+    composer: 'Serena Brancale',
+    description: "Una ballad napoletana dal sapore neo-soul arrangiata da Serena Brancale per marching band. Voicing lussureggiante per gli ottoni, interventi call-and-response con il sax alto e groove in stile R&B contemporaneo.",
+    price: 28.00,
+    category: 'Soul Italiano',
+    cover_url: 'uploads/anema-e-core.jpg',
     audio_url: null,
     preview_url: null,
-    rating: 4.8,
-    downloads: 892
-  }
+    rating: 4.9,
+    downloads: 965
+  }␊
+
 ];
