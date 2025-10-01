@@ -66,7 +66,7 @@ class ScoreApp {
                             </div>
                         ` : ''}
                         <div class="position-absolute top-0 end-0 p-3">
-                            <span class="badge bg-primary fs-6">€${score.price}</span>
+                            <span class="badge bg-primary fs-6">€${String(score.price).replace('.', ',')}</span>
                         </div>
                         <div class="position-absolute bottom-0 start-0 p-3">
                             <span class="badge bg-dark">${this.escapeHtml(score.category || 'Altro')}</span>
@@ -146,7 +146,7 @@ class ScoreApp {
                         
                         <div class="mb-3">
                             <h6 class="fw-bold text-primary">Prezzo</h6>
-                            <p class="fs-4 fw-bold text-success">€${score.price}</p>
+                            <p class="fs-4 fw-bold text-success">€${String(score.price).replace('.', ',')}</p>
                         </div>
                         
                         ${score.audio_url ? `
