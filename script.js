@@ -5,11 +5,24 @@ class ScoreApp {
         this.scores = [];
         this.filteredScores = [];
         this.currentScore = null;
+        this.currentSort = 'default';
         this.init();
     }
 
     init() {
         this.loadScores();
+        this.setupEventListeners();
+    }
+
+    setupEventListeners() {
+        // Sort functionality
+        const sortSelect = document.getElementById('sortSelect');
+        if (sortSelect) {
+            sortSelect.addEventListener('change', (e) => {
+                this.currentSort = e.target.value;
+                this.applyFiltersAndSort();
+            });
+        }
     }
 
     loadScores() {
@@ -18,7 +31,7 @@ class ScoreApp {
             return { ...score };
         });
         this.filteredScores = [...this.scores];
-        this.renderScores();
+        this.applyFiltersAndSort();
     }
 
     filterScores(searchTerm) {
@@ -33,6 +46,35 @@ class ScoreApp {
                 score.description.toLowerCase().includes(term)
             );
         }
+        this.applyFiltersAndSort();
+    }
+
+    sortScores(scores) {
+        const sorted = [...scores];
+        
+        switch (this.currentSort) {
+            case 'price-asc':
+                return sorted.sort((a, b) => {
+                    const priceA = parseFloat(a.price.replace(',', '.'));
+                    const priceB = parseFloat(b.price.replace(',', '.'));
+                    return priceA - priceB;
+                });
+            case 'price-desc':
+                return sorted.sort((a, b) => {
+                    const priceA = parseFloat(a.price.replace(',', '.'));
+                    const priceB = parseFloat(b.price.replace(',', '.'));
+                    return priceB - priceA;
+                });
+            case 'default':
+            default:
+                // Mantieni l'ordine originale (per ID)
+                return sorted.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+        }
+    }
+
+    applyFiltersAndSort() {
+        // For now, just apply sorting to filtered scores
+        this.filteredScores = this.sortScores(this.filteredScores);
         this.renderScores();
     }
     
