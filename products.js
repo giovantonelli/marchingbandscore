@@ -104,6 +104,6 @@ const PRODUCTS = [
     preview_url: null,
     rating: 4.9,
     downloads: 965
-  }␊
+  }
 
 ];
