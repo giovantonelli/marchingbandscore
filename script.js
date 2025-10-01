@@ -161,14 +161,7 @@ class ScoreApp {
                             </div>
                         ` : ''}
                         
-                        ${score.preview_url ? `
-                            <div class="mb-3">
-                                <h6 class="fw-bold text-primary">Anteprima PDF</h6>
-                                <div class="preview-section">
-                                    <iframe src="${score.preview_url}" class="w-100" style="height: 400px;" frameborder="0"></iframe>
-                                </div>
-                            </div>
-                        ` : ''}
+                        // ...rimosso anteprima PDF preview_url...
                     </div>
                 </div>
             `;
