@@ -497,9 +497,36 @@ footer {
     height: 3rem;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
+/* Sort Filter */
+.sort-container {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.sort-container:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+.sort-container label {
+    font-size: 1rem;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+.sort-container .form-select {
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.sort-container .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
 }
 
 ::-webkit-scrollbar-track {

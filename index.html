@@ -129,7 +129,19 @@
                     </div>
                 </div>
 
-                <!-- Scores Section -->
+                <!-- Sort Filter -->
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-4">
+                        <div class="sort-container d-flex align-items-center justify-content-center">
+                            <label for="sortSelect" class="me-3 fw-semibold text-muted">Ordina per:</label>
+                            <select id="sortSelect" class="form-select form-select-lg border-0 bg-transparent">
+                                <option value="default" selected>Rilevanza</option>
+                                <option value="price-asc">Prezzo crescente</option>
+                                <option value="price-desc">Prezzo decrescente</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <div class="row" id="scoresContainer">
                     <!-- Scores will be loaded here dynamically -->
                 </div>
